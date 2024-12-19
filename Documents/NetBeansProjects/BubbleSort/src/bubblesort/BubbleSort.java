@@ -8,41 +8,41 @@ import java.util.Scanner;
 
 public class BubbleSort {
     public static void main(String[] args) {
-                // Create a Scanner object to take input from the user
+        // Create a Scanner object to take input from the user
         Scanner scanner = new Scanner(System.in);
 
-        // Input: Size of the array
+        // Input: Ask the user for the size of the array
         System.out.print("Enter the size of the array: ");
-        int n = scanner.nextInt();
+        int n = scanner.nextInt(); // Read the size of the array
 
-        // Declare the array to store the element
-        int[] array = new int[n]; // 
+        // Declare an array of size 'n' to store the elements
+        int[] array = new int[n];
 
-        // Input: Elements of the array
+        // Input: Ask the user to enter the elements of the array
         System.out.println("Enter the elements of the array: ");
         for (int i = 0; i < n; i++) {
+            // Store each entered element in the array
             array[i] = scanner.nextInt();
         }
 
         // Display the array before sorting
         System.out.print("Array before sorting: ");
-        displayArray(array);// Call the display function to print the array
+        displayArray(array); // Call the function to print the array
 
-        // Sort the array using Bubble Sort and count swaps
+        // Sort the array using the Bubble Sort algorithm and count the number of swaps
         int swapCount = bubbleSort(array);
 
         // Display the array after sorting
         System.out.print("Array after sorting: ");
-        displayArray(array);
+        displayArray(array); // Call the function to print the sorted array
 
-        // Display total number of swaps
+        // Display the total number of swaps performed during sorting
         System.out.println("Total number of swaps: " + swapCount);
 
-        // Close the scanner
+        // Close the Scanner object to release resources
         scanner.close();
     }
-    
-    
+
     /**
      * This function sorts an array using the Bubble Sort algorithm.
      * It also counts the total number of swaps performed.
@@ -50,34 +50,42 @@ public class BubbleSort {
      * @param array The input array to be sorted
      * @return The total number of swaps performed
      */
-
-    // Bubble Sort function
     public static int bubbleSort(int[] array) {
-        int n = array.length;
-        int swapCount = 0; // Counter for swaps
+        int n = array.length; // Get the size of the array
+        int swapCount = 0; // Initialize a counter to track the number of swaps
 
         // Perform Bubble Sort
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - 1 - i; j++) {
-                // Compare adjacent elements
+        for (int i = 0; i < n - 1; i++) { // Outer loop controls the number of passes
+            for (int j = 0; j < n - 1 - i; j++) { // Inner loop compares adjacent elements
+                // Compare the current element with the next element
                 if (array[j] > array[j + 1]) {
-                    // Swap elements if they are in the wrong order
+                    // Swap the elements if they are in the wrong order
                     int temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
 
-                    swapCount++; // Increment swap counter
+                    // Increment the swap counter
+                    swapCount++;
                 }
             }
         }
-        return swapCount; // Return total swaps
+
+        // Return the total number of swaps performed
+        return swapCount;
     }
 
-    // Function to display the array
+    /**
+     * This function displays the elements of an array.
+     *
+     * @param array The array to be displayed
+     */
     public static void displayArray(int[] array) {
+        // Loop through each element in the array
         for (int value : array) {
+            // Print the current element followed by a space
             System.out.print(value + " ");
         }
+        // Move to the next line after printing all elements
         System.out.println();
     }
 }
