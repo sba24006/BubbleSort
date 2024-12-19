@@ -1,6 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+         https://github.com/sba24006/DiagonalSum/blob/master/Documents/NetBeansProjects/DiagonalSum/src/diagonalsum/DiagonalSum.java
  */
 package diagonalsum;
 
