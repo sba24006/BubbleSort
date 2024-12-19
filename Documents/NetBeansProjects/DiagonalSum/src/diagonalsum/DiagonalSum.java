@@ -9,39 +9,45 @@ import java.util.Scanner;
 
 public class DiagonalSum {
     public static void main(String[] args) {
-        // Scanner object for user input
+        // Create a Scanner object to read user input
         Scanner scanner = new Scanner(System.in);
 
-        // Input matrix size
+        // Prompt the user to enter the size of the matrix (n x n)
         System.out.print("Enter size of matrix: ");
         int n = scanner.nextInt();
 
-        // Declare a 2D array to store the matrix
+        // Declare a 2D array to store the matrix elements
+        // A 2D array is used to represent the matrix, with rows and columns
         int[][] matrix = new int[n][n];
 
-        // Input matrix elements row by row
+        // Prompt the user to enter the elements of the matrix row by row
         System.out.println("Enter elements row by row:");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i < n; i++) { // Loop through each row
+            for (int j = 0; j < n; j++) { // Loop through each column in the current row
+                // Read the value for the current cell (i, j)
                 matrix[i][j] = scanner.nextInt();
             }
         }
 
-        // Variables to store sums of diagonals
+        // Declare variables to store the sums of the main diagonal and secondary diagonal
         int mainDiagonalSum = 0;
         int secondaryDiagonalSum = 0;
 
-        // Calculate the sums of the main diagonal and secondary diagonal
+        // Calculate the sums of the diagonals
         for (int i = 0; i < n; i++) {
-            mainDiagonalSum += matrix[i][i]; // Main diagonal elements: row == column
-            secondaryDiagonalSum += matrix[i][n - 1 - i]; // Secondary diagonal: row + column = n - 1
+            // Main diagonal: Elements where row index equals column index (i.e., matrix[i][i])
+            mainDiagonalSum += matrix[i][i];
+
+            // Secondary diagonal: Elements where row index + column index equals n - 1
+            // (i.e., matrix[i][n - 1 - i])
+            secondaryDiagonalSum += matrix[i][n - 1 - i];
         }
 
-        // Display the results
+        // Display the calculated sums of the diagonals
         System.out.println("Sum of main diagonal: " + mainDiagonalSum);
         System.out.println("Sum of secondary diagonal: " + secondaryDiagonalSum);
 
-        // Close the scanner
+        // Close the Scanner to release system resources
         scanner.close();
     }
 }
